@@ -1,0 +1,12 @@
+#!/bin/bash
+
+mkdir .ssh
+chmod 700 .ssh
+
+touch .ssh/authorized_keys
+chmod 600 .ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDe6+XU5D/dLl+xzE/bO5EygUUq7SeDGMG44qu5Il292rvcK2aDm90MwTNxR56hwfJtO8k2CSNhoAdCzI50MW/dHNzFCh3Rm7l+yAGeCueyJpWb7RPuG+QJeMkLEv74QjPzehS5jVG2//RrNEKWECx7Dh4HWvVP0tBMtR5KuVUWJmKOr2nIBInPza3o+wu26O4EquQZBtO+Z72Jd4tu9FF3/aLm7o0G5LQG0dBOBfZhxoBE2vOay6dVman7rBVAKG+Topk1NNB2ldFTLzTOr1CNOBWrqX26p3nVPuCpyX4IwDZ1IE6U+IrtkXCjMRBr7OMcxgjHhyXkrHrnsMsHXd5CHsiBijw6HpefzBqu+Fx7BdUeGEHctlcpc/DIcrL/CnQjTxsVjjiVwslzkNn6iB5wD3DJHH8Rmrm8dA8d+Nmpjal8We4/X9XqqXgmO37BW1aHB87vi09SsHMKSBYDvhHmvs8fwvfK6IajzDfjMuF1jgiIpNIC/bFqc1ULkhqhG452ZdRQ1CQcdtSjiWQRDv64HY2WEmecULXziWN8HWdvpPqQfH6gWDILq4OrcXRo/OkI/xcM11xzJPtnyG/zzbhsCMLxcabFpjHWU2Zyzomf9uDmPC0ELcAXRgOS1wNLbUmOZqHsYi/vOy9/c837k2qZCyd156wcJGs2t0m97QyGlw== testnet"  > .ssh/authorized_keys
+
+echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+systemctl restart ssh
+apt update && apt upgrade && apt install htop mc net-tools jq -y
